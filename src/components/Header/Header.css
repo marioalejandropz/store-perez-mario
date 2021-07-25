@@ -1,0 +1,67 @@
+header {
+    height: 492px;
+}
+
+.logo-username-container {
+    height: 80px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 38px;
+    padding-left: 42px;
+}
+
+.username-points-container {
+    display: flex;
+    width: 215px;
+    margin-right: 48px;
+    justify-content: center;
+    align-items: center;
+}
+
+.username {
+    color: #616161;
+}
+
+.points {
+    color: #616161;
+}
+.coin-icon {
+    height: 24px;
+    margin-left: 6px;
+}
+
+.points-container {
+    display: flex;
+    margin-left: 27px;
+    justify-content: center;
+    align-items: center;
+    background-color: #ededed;
+    width: 103px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.h1-pic-container {
+    overflow: hidden;
+    position: relative;
+    height: 412px;
+}
+
+.title {
+    position: absolute;
+    color: #fff;
+    top: 284px;
+    left: 132px;
+    font-size: 64px;
+}
+
+.header-pic {
+    height: 115%;
+    width: 100%;
+    object-fit: cover;
+}

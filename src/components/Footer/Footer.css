@@ -1,0 +1,26 @@
+footer {
+    width: 1176px;
+    height: 72px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #d9d9d9;
+    margin-top: 50px;
+}
+
+.arrow-icons-container {
+    padding-bottom: 10px;
+}
+
+.arrow-left-footer {
+    height: 48px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+.arrow-right-footer {
+    height: 48px;
+    cursor: pointer;
+    position: unset;
+}

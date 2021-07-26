@@ -8,7 +8,7 @@ function Filters() {
             <div className="amount-products">16 of 32 products</div>
             <div className="vertical-line"></div>
             <p className="sort-by">Sort by</p>
-            <button className="btn">Most recent</button>
+            <button className="btn">Category</button>
             <button className="btn">Lowest price</button>
             <button className="btn">Highest price</button>
             <img className="arrow-right-icon" src={arrowRight} alt="" />

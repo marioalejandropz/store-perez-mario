@@ -1,6 +1,6 @@
 .filters-container {
     display: flex;
-    width: 1128px;
+    width: 1176px;
     height: 137px;
     margin: auto;
     align-items: flex-end;
@@ -56,5 +56,6 @@
     height: 48px;
     text-align: right;
     position: relative;
-    left: 175px;
+    left: 220px;
+    cursor: pointer;
 }

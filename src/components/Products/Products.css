@@ -1,145 +1,151 @@
 .products-main-container {
-    /* height: 1278px; */
-    width: 1176px;
-    margin: auto;
-    margin-top: 25px;
-    border-top: 1px solid #d9d9d9;
+   /* height: 100%; */
+   width: 1176px;
+   margin: auto;
+   margin-top: 25px;
+   border-top: 1px solid #d9d9d9;
+   display: grid;
+   grid-template-columns: 25% 25% 25% 25%;
+   grid-row-gap: 24px;
+   padding-top: 42px;
 }
 
 .products-container {
-    height: 276px;
-    width: 276px;
-    background: #ffffff;
-    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    margin-top: 42px;
-    position: relative;
+   height: 276px;
+   width: 276px;
+   background: #ffffff;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   margin-top: 42px;
+   position: relative;
+   margin: auto;
+   /* margin: 24px; */
 }
 
 /* .products-container::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0.8;
-    z-index: 0;
+   content: "";
+   width: 100%;
+   height: 100%;
+   background: linear-gradient(-180deg, #0ad4fa 0%, #25bbf1 100%);
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0.8;
+   z-index: 0;
 } */
 
 .pic-icon-container {
-    height: 182px;
-    width: 252px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+   height: 182px;
+   width: 252px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
 }
 
 .product-pic {
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-    margin-top: 10px;
+   max-width: 100%;
+   max-height: 100%;
+   margin: auto;
+   margin-top: 10px;
 }
 
 .buy-icon {
-    height: 42px;
-    position: absolute;
-    bottom: 220px;
-    right: 15px;
-    cursor: pointer;
-    z-index: 10;
+   height: 42px;
+   position: absolute;
+   bottom: 220px;
+   right: 15px;
+   cursor: pointer;
+   z-index: 10;
 }
 
 .missing-coins-container {
-    opacity: 0.8;
-    background: #616161;
-    border-radius: 100px;
-    width: 142px;
-    height: 42px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    bottom: 220px;
-    right: 15px;
+   opacity: 0.8;
+   background: #616161;
+   border-radius: 100px;
+   width: 142px;
+   height: 42px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   bottom: 220px;
+   right: 15px;
 }
 
 .missing-coins-p {
-    font-size: 14px;
-    color: #ffffff;
-    letter-spacing: -0.03px;
+   font-size: 14px;
+   color: #ffffff;
+   letter-spacing: -0.03px;
 }
 
 .missing-coins-icon {
-    height: 20px;
+   height: 20px;
 }
 
 .redeem-main-container {
-    height: 182px;
-    width: 252px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
+   height: 182px;
+   width: 252px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0 auto;
 }
 
 .reedem-container {
-    position: absolute;
-    z-index: 10;
+   position: absolute;
+   z-index: 10;
 }
 
 .coins-amount-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 125px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: 125px;
 }
 
 .coins-p {
-    font-size: 36px;
-    color: #ffffff;
-    letter-spacing: -0.08px;
-    margin-right: 10px;
+   font-size: 36px;
+   color: #ffffff;
+   letter-spacing: -0.08px;
+   margin-right: 10px;
 }
 .coins-icon {
-    height: 26px;
+   height: 26px;
 }
 
 .redeem-p {
-    font-size: 18px;
-    color: #616161;
-    letter-spacing: -0.04px;
-    width: 228px;
-    height: 42px;
-    border-radius: 21px;
-    background-color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 12px;
+   font-size: 18px;
+   color: #616161;
+   letter-spacing: -0.04px;
+   width: 228px;
+   height: 42px;
+   border-radius: 21px;
+   background-color: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-top: 12px;
 }
 
 .p-container {
-    height: 81px;
-    text-align: left;
-    width: 228px;
-    margin: 0 auto;
-    margin-top: 20px;
-    border-top: 1px solid #d9d9d9;
+   height: 81px;
+   text-align: left;
+   width: 228px;
+   margin: 0 auto;
+   margin-top: 20px;
+   border-top: 1px solid #d9d9d9;
 }
 
 .product-category {
-    font-size: 16px;
-    color: #a3a3a3;
-    letter-spacing: -0.04px;
-    padding-top: 10px;
+   font-size: 16px;
+   color: #a3a3a3;
+   letter-spacing: -0.04px;
+   padding-top: 10px;
 }
 
 .product-name {
-    font-size: 18px;
-    color: #616161;
-    letter-spacing: -0.04px;
+   font-size: 18px;
+   color: #616161;
+   letter-spacing: -0.04px;
 }

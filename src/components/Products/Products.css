@@ -19,10 +19,19 @@
    margin-top: 42px;
    position: relative;
    margin: auto;
-   /* margin: 24px; */
 }
 
-/* .products-container::after {
+.products-container-blue {
+   height: 276px;
+   width: 276px;
+   background: #ffffff;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
+   overflow: hidden;
+   margin-top: 42px;
+   position: relative;
+   margin: auto;
+}
+.products-container-blue::after {
    content: "";
    width: 100%;
    height: 100%;
@@ -32,7 +41,7 @@
    left: 0;
    opacity: 0.8;
    z-index: 0;
-} */
+}
 
 .pic-icon-container {
    height: 182px;
@@ -77,6 +86,7 @@
    font-size: 14px;
    color: #ffffff;
    letter-spacing: -0.03px;
+   margin-right: 6px;
 }
 
 .missing-coins-icon {

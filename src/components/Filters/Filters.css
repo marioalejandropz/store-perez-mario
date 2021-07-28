@@ -33,7 +33,7 @@
 }
 
 .btn {
-   background: #dbdada;
+   background: #ebe6e6;
    border-radius: 100px;
    width: 172px;
    height: 48px;
@@ -58,4 +58,10 @@
    position: relative;
    left: 220px;
    cursor: pointer;
+}
+
+.arrow-right-icon:hover {
+   background-color: #0ad4fa;
+   cursor: pointer;
+   border-radius: 100%;
 }

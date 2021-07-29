@@ -28,7 +28,7 @@ function Header() {
             const response = await request();
             const res = await response.json();
             setRequestUser(res);
-            console.log(res);
+            // console.log(res);
          } catch (error) {
             console.log(error);
          }

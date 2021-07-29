@@ -65,7 +65,7 @@
    bottom: 220px;
    right: 15px;
    cursor: pointer;
-   z-index: 10;
+   z-index: 11;
 }
 
 .missing-coins-container {

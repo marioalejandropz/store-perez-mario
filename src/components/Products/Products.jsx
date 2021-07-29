@@ -12,12 +12,11 @@ function Products() {
 
    //States
    const [requestProduct, setRequestProduct] = useState([]);
-   const [buyBtn, setBuyBtn] = useState(false);
+   const [buyBtn, setBuyBtn] = useState("");
 
    //Handlers
-   // const buyBlueBtnHandler = (e) => {
-   //    setBuyBtn(e.target.value);
-   // setBuyBtn(!buyBtn);
+   // const buyBtnHandler = (i) => {
+   //    setBuyBtn(i);
    // };
 
    // useEffect
@@ -46,16 +45,16 @@ function Products() {
 
    return (
       <div className="products-main-container">
-         {(requestProduct || []).map((products) => {
+         {(requestProduct || []).map((products, i) => {
             //Find missing coins
             let missingPoins = (points - products.cost) * -1;
             return (
-               <div className={`${buyBtn ? "products-container-blue" : "products-container"}`}>
-                  {/* conditional rendering for reedem now window */}
-                  {buyBtn ? (
+               <div key={uniqueId()} className={`${buyBtn === i ? "products-container-blue" : "products-container"}`}>
+                  {/* conditional rendering for redeem now window */}
+                  {buyBtn === i ? (
                      <div className="redeem-main-container">
                         <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
-                        <img className="buy-icon" src={buyWhite} alt="" />
+                        <img className="buy-icon" src={buyWhite} alt="" onClick={() => setBuyBtn("")} />
                         <div className="reedem-container">
                            <div className="coins-amount-container">
                               <p className="coins-p">12.000</p>
@@ -69,21 +68,7 @@ function Products() {
                         <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
                         {/* conditional rendering for missing points */}
                         {products.cost < points ? (
-                           <img
-                              className="buy-icon"
-                              src={buyBlue}
-                              alt=""
-                              onClick={() => {
-                                 setBuyBtn(!buyBtn);
-                              }}
-                              onBlur={() =>
-                                 setTimeout(() => {
-                                    setBuyBtn(false);
-                                 }, 100)
-                              }
-                              // onClick={buyBlueBtnHandler}
-                              // value={!buyBtn}
-                           />
+                           <img className="buy-icon" src={buyBlue} alt="" onClick={() => setBuyBtn(i)} />
                         ) : (
                            <div className="missing-coins-container">
                               <p className="missing-coins-p">You need {missingPoins}</p>

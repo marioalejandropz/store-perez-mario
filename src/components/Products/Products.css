@@ -124,7 +124,7 @@
    height: 26px;
 }
 
-.redeem-p {
+.redeem-btn {
    font-size: 18px;
    color: #616161;
    letter-spacing: -0.04px;
@@ -136,6 +136,8 @@
    align-items: center;
    justify-content: center;
    margin-top: 12px;
+   border: none;
+   cursor: pointer;
 }
 
 .p-container {

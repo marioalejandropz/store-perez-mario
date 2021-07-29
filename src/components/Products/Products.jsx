@@ -8,16 +8,37 @@ import coin from "../../assets/icons/coin.svg";
 
 function Products() {
    //Context
-   const { points } = useContext(AppContext);
+   const { points, categoryFilter, priceFilter } = useContext(AppContext);
 
    //States
    const [requestProduct, setRequestProduct] = useState([]);
    const [buyBtn, setBuyBtn] = useState("");
 
-   //Handlers
-   // const buyBtnHandler = (i) => {
-   //    setBuyBtn(i);
-   // };
+   //Filter functions
+   const filterFunctions = () => {
+      const filterProducts = requestProduct
+         //Filter by category
+         .filter((prod) => {
+            if (categoryFilter !== "Category") {
+               return categoryFilter === prod.category;
+            } else {
+               return prod;
+            }
+         })
+         //Filter by price
+         .sort((a, b) => {
+            if (priceFilter.sort === "Highest price") {
+               return b.cost - a.cost;
+            } else if (priceFilter.sort === "Lowest price") {
+               return a.cost - b.cost;
+            }
+            return priceFilter;
+         });
+
+      return filterProducts;
+   };
+
+   const filteredProducts = filterFunctions();
 
    // useEffect
    useEffect(() => {
@@ -45,7 +66,7 @@ function Products() {
 
    return (
       <div className="products-main-container">
-         {(requestProduct || []).map((products, i) => {
+         {(filteredProducts || []).map((products, i) => {
             //Find missing coins
             let missingPoins = (points - products.cost) * -1;
             return (
@@ -60,7 +81,7 @@ function Products() {
                               <p className="coins-p">12.000</p>
                               <img className="coins-icon" src={coin} alt="" />
                            </div>
-                           <button className="redeem-p">Redeem Now</button>
+                           <button className="redeem-btn">Redeem Now</button>
                         </div>
                      </div>
                   ) : (

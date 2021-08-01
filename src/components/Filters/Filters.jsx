@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 import "./Filters.css";
-import arrowRight from "../../assets/icons/arrow-right.svg";
+import Pagination from "../../utils/components/Pagination";
 
 function Filters() {
    //Context
@@ -19,19 +19,19 @@ function Filters() {
             <option value="Laptops">Laptops</option>
             <option value="Cameras">Cameras</option>
             <option value="Audio">Audio</option>
-            <option value="Monitors">Monitors & TV</option>
+            <option value="Monitors & TV">Monitors & TV</option>
             <option value="Smart Home">Smart Home</option>
             <option value="Drones">Drones</option>
             <option value="Phone Accessories">Phone Accessories</option>
             <option value="PC Accessories">PC Accessories</option>
             <option value="Tablets & E-readers">Tablets & E-readers</option>
          </select>
-         <select className="filter" onChange={(e) => setPriceFilter({ sort: e.target.value })}>
+         <select className="filter-price filter" onChange={(e) => setPriceFilter({ sort: e.target.value })}>
             <option value="Price">Price</option>
             <option value="Lowest price">Lowest price</option>
             <option value="Highest price">Highest price</option>
          </select>
-         <img className="arrow-right-icon" src={arrowRight} alt="" />
+         <Pagination />
       </div>
    );
 }

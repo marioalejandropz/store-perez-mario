@@ -12,21 +12,3 @@ footer {
 .arrow-icons-container {
    padding-bottom: 10px;
 }
-
-.arrow-left-footer {
-   height: 48px;
-   cursor: pointer;
-   margin-right: 12px;
-}
-
-.arrow-left-footer {
-   height: 48px;
-   cursor: pointer;
-   position: unset;
-}
-
-.arrow:hover {
-   background-color: #0ad4fa;
-   cursor: pointer;
-   border-radius: 100%;
-}

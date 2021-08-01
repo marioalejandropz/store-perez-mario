@@ -8,10 +8,9 @@ import coin from "../../assets/icons/coin.svg";
 
 function Products() {
    //Context
-   const { points, categoryFilter, priceFilter } = useContext(AppContext);
+   const { points, categoryFilter, priceFilter, requestProduct, setRequestProduct, currentPage, postPerPage } = useContext(AppContext);
 
    //States
-   const [requestProduct, setRequestProduct] = useState([]);
    const [buyBtn, setBuyBtn] = useState("");
 
    //Filter functions
@@ -64,9 +63,14 @@ function Products() {
       infoRequest();
    }, [setRequestProduct]);
 
+   //Pagination - Get current products
+   const indexOfLastPost = currentPage * postPerPage;
+   const indexOfFirstPost = indexOfLastPost - postPerPage;
+   const currentProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
+
    return (
       <div className="products-main-container">
-         {(filteredProducts || []).map((products, i) => {
+         {(currentProducts || []).map((products, i) => {
             //Find missing coins
             let missingPoins = (points - products.cost) * -1;
             return (

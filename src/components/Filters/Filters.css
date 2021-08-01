@@ -54,16 +54,6 @@
    cursor: pointer;
 }
 
-.arrow-right-icon {
-   height: 48px;
-   text-align: right;
-   position: relative;
-   left: 220px;
-   cursor: pointer;
-}
-
-.arrow-right-icon:hover {
-   background-color: #0ad4fa;
-   cursor: pointer;
-   border-radius: 100%;
+.filter-price {
+   margin-right: 375px;
 }

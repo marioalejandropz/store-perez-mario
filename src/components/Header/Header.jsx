@@ -10,8 +10,6 @@ function Header() {
    //Context
    const { requestUser, setRequestUser, points } = useContext(AppContext);
 
-   //States
-
    // useEffect
    useEffect(() => {
       //Api request

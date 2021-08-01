@@ -1,0 +1,22 @@
+.arrow-left {
+   height: 48px;
+   text-align: right;
+   position: relative;
+   margin-right: 12px;
+}
+
+.arrow-right {
+   height: 48px;
+   text-align: right;
+   position: relative;
+}
+
+.hide {
+   display: none;
+}
+
+.arrow:hover {
+   background-color: #0ad4fa;
+   cursor: pointer;
+   border-radius: 100%;
+}

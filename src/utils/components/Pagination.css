@@ -1,14 +1,15 @@
+.arrows-container {
+   /* display: flex; */
+   /* background-color: yellow; */
+}
+
 .arrow-left {
    height: 48px;
-   text-align: right;
-   position: relative;
    margin-right: 12px;
 }
 
 .arrow-right {
    height: 48px;
-   text-align: right;
-   position: relative;
 }
 
 .hide {

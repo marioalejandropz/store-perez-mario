@@ -5,11 +5,11 @@ import Pagination from "../../utils/components/Pagination";
 
 function Filters() {
    //Context
-   const { categoryFilter, setCategoryFilter, setPriceFilter } = useContext(AppContext);
+   const { categoryFilter, setCategoryFilter, setPriceFilter, currentPage } = useContext(AppContext);
 
    return (
       <div className="filters-container">
-         <div className="amount-products">16 of 32 products</div>
+         {currentPage === 1 ? <div className="amount-products">16 of 32 products</div> : <div className="amount-products">32 of 32 products</div>}
          <div className="vertical-line"></div>
          <p className="sort-by">Sort by:</p>
          <select className="filter" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>

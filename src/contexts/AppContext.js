@@ -1,7 +1,6 @@
 import React, { useState, createContext } from "react";
 
 export const AppContext = createContext();
-
 export const AppProvider = ({ children }) => {
    //states
    const [requestProduct, setRequestProduct] = useState([]);
@@ -9,9 +8,9 @@ export const AppProvider = ({ children }) => {
    const [categoryFilter, setCategoryFilter] = useState("Category");
    const [priceFilter, setPriceFilter] = useState("Price");
    const [filteredInfo, setFilteredInfo] = useState([]);
-   //--------------------------------------
    const [currentPage, setCurrentPage] = useState(1);
    const [postPerPage, setPostPerPage] = useState(16);
+   const [buyBtn, setBuyBtn] = useState("");
 
    //User points
    let points = requestUser.points - 7410630 || "";
@@ -34,6 +33,8 @@ export const AppProvider = ({ children }) => {
             setCurrentPage,
             postPerPage,
             setPostPerPage,
+            buyBtn,
+            setBuyBtn,
          }}
       >
          {children}

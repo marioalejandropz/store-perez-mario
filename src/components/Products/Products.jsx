@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 import { uniqueId } from "lodash";
 import "./Products.css";
@@ -8,10 +8,8 @@ import coin from "../../assets/icons/coin.svg";
 
 function Products() {
    //Context
-   const { points, categoryFilter, priceFilter, requestProduct, setRequestProduct, currentPage, postPerPage } = useContext(AppContext);
-
-   //States
-   const [buyBtn, setBuyBtn] = useState("");
+   const { points, categoryFilter, priceFilter, buyBtn, setBuyBtn, requestProduct, setRequestProduct, currentPage, postPerPage } =
+      useContext(AppContext);
 
    //Filter functions
    const filterFunctions = () => {
@@ -55,7 +53,6 @@ function Products() {
             const response = await request();
             const res = await response.json();
             setRequestProduct(res);
-            // console.log(res);
          } catch (error) {
             console.log(error);
          }

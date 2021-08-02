@@ -35,14 +35,58 @@ header {
    width: 103px;
    height: 48px;
    border-radius: 100px;
+   cursor: pointer;
 }
 
 .points {
    color: #616161;
 }
+
 .coin-icon {
    height: 24px;
    margin-left: 6px;
+}
+
+.add-points-picture-container {
+   position: relative;
+}
+.add-points-container {
+   position: absolute;
+   z-index: 1;
+   left: 84%;
+   top: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+input {
+   background-color: #ebe6e6;
+   border-radius: 100px;
+   border: none;
+   width: 230px;
+   height: 48px;
+   text-align: center;
+   outline: none;
+}
+
+.points-btn {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #ebe6e6;
+   width: 130px;
+   height: 48px;
+   border-radius: 100px;
+   border: none;
+   color: #616161;
+   margin: 5px 0 5px 0;
+   cursor: pointer;
+}
+
+.hide {
+   display: none;
 }
 
 .h1-pic-container {

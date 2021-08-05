@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
 import "./Pagination.css";
-import { AppContext } from "../../contexts/AppContext";
-import arrowLeft from "../../assets/icons/arrow-left.svg";
-import arrowRight from "../../assets/icons/arrow-right.svg";
+import { AppContext } from "../../../contexts//AppContext";
+import arrowLeft from "../../../assets/icons/arrow-left.svg";
+import arrowRight from "../../../assets/icons/arrow-right.svg";
 import { uniqueId } from "lodash";
+import useFetchGet from "../../../hooks/useFetchGet";
 
-const Pagination = () => {
+const Pagination = ({ setCurrentPage, postPerPage }) => {
    //Context
-   const { requestProduct, setCurrentPage, postPerPage, setBuyBtn } = useContext(AppContext);
+   const { setBuyBtn /*, requestProduct*/ } = useContext(AppContext);
+
+   //Custom Hook
+   const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
    //Change page
    const paginate = (pageNumber) => {
@@ -17,7 +21,7 @@ const Pagination = () => {
 
    const pageNumbers = [];
 
-   for (let i = 1; i <= Math.ceil(requestProduct.length / postPerPage); i++) {
+   for (let i = 1; i <= Math.ceil(requestData.length / postPerPage); i++) {
       pageNumbers.push(i);
    }
 

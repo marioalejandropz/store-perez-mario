@@ -6,10 +6,14 @@
 .arrow-left {
    height: 48px;
    margin-right: 12px;
+   transition: all 0.5s ease 0s;
+   border-radius: 100%;
 }
 
 .arrow-right {
    height: 48px;
+   transition: all 0.5s ease 0s;
+   border-radius: 100%;
 }
 
 .hide {
@@ -19,5 +23,6 @@
 .arrow:hover {
    background-color: #0ad4fa;
    cursor: pointer;
-   border-radius: 100%;
+   transition: all 0.5s ease 0s;
+   color: #fff;
 }

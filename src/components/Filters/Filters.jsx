@@ -1,15 +1,28 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../contexts/AppContext";
 import "./Filters.css";
-import Pagination from "../../utils/components/Pagination";
+import Pagination from "../../utils/components/Pagination/Pagination";
+import useFetchGet from "../../hooks/useFetchGet";
 
-function Filters() {
+function Filters({ categoryFilter, setCategoryFilter, setPriceFilter, currentProducts, setCurrentPage, postPerPage, indexOfLastPost }) {
    //Context
-   const { categoryFilter, setCategoryFilter, setPriceFilter, currentPage } = useContext(AppContext);
+   const { setPurchaseHistoryBtn, purchaseHistory } = useContext(AppContext);
 
+   //Custom Hook
+   const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
+
+   console.log("currentProducts:", currentProducts);
    return (
       <div className="filters-container">
-         {currentPage === 1 ? <div className="amount-products">16 of 32 products</div> : <div className="amount-products">32 of 32 products</div>}
+         {categoryFilter !== "Category" ? (
+            <div className="amount-products">
+               {currentProducts.length} of {currentProducts.length} products
+            </div>
+         ) : (
+            <div className="amount-products">
+               {indexOfLastPost} of {requestData.length} products
+            </div>
+         )}
          <div className="vertical-line"></div>
          <p className="sort-by">Sort by:</p>
          <select className="filter" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
@@ -26,12 +39,16 @@ function Filters() {
             <option value="PC Accessories">PC Accessories</option>
             <option value="Tablets & E-readers">Tablets & E-readers</option>
          </select>
-         <select className="filter-price filter" onChange={(e) => setPriceFilter({ sort: e.target.value })}>
+         <select className="filter" onChange={(e) => setPriceFilter({ sort: e.target.value })}>
             <option value="Price">Price</option>
             <option value="Lowest price">Lowest price</option>
             <option value="Highest price">Highest price</option>
          </select>
-         <Pagination />
+         <div className="vertical-line"></div>
+         <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistory)}>
+            Purchase History
+         </button>
+         {currentProducts.length < 16 ? <></> : <Pagination setCurrentPage={setCurrentPage} postPerPage={postPerPage} />}
       </div>
    );
 }

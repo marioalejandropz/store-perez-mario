@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../contexts/AppContext";
 import { uniqueId } from "lodash";
 import "./Header.css";
@@ -8,17 +8,13 @@ import coin from "../../assets/icons/coin.svg";
 
 function Header() {
    //Context
-   const { requestUser, setRequestUser, points } = useContext(AppContext);
+   const { points, setRequestUser, requestUser } = useContext(AppContext);
 
    //Hooks
    const [pointsBtn, setPointsBtn] = useState(false);
-   const [addPoints, setAddPoints] = useState("");
 
-   //Handlers
-   const handleSubmit = (e) => {
-      e.preventDefault();
-      setAddPoints(addPoints);
-
+   //Add points Handler
+   const handleSubmit = (points) => {
       //Post request to add points
       async function infoRequest() {
          //Api authentication
@@ -32,12 +28,12 @@ function Header() {
             await fetch(`https://coding-challenge-api.aerolab.co/user/points`, {
                method: "POST",
                headers,
-               body: JSON.stringify({ amount: addPoints }),
+               body: JSON.stringify({ amount: points }),
             });
          try {
             const response = await request();
             const res = await response.json();
-            console.log(res);
+            console.log("Request Add Points:", res);
          } catch (error) {
             console.log(error);
          }
@@ -60,7 +56,7 @@ function Header() {
             const response = await request();
             const res = await response.json();
             setRequestUser(res);
-            // console.log(res);
+            console.log("Request UserInfo:", res);
          } catch (error) {
             console.log(error);
          }
@@ -76,29 +72,27 @@ function Header() {
                <div className="username" key={requestUser.id}>
                   {requestUser.name}
                </div>
-               <div className="points-container" onClick={() => setPointsBtn(!pointsBtn)}>
-                  <div className="points" key={uniqueId()}>
-                     {points}
-                  </div>
+               <button key={uniqueId()} className="total-points-btn" onClick={() => setPointsBtn(!pointsBtn)}>
+                  {points}
                   <img className="coin-icon" src={coin} alt="" />
-               </div>
+               </button>
             </div>
          </div>
          <div className="add-points-picture-container">
-            <form onSubmit={handleSubmit} className={`${pointsBtn ? "hide" : "add-points-container"}`}>
-               <button className="points-btn" onClick={() => setAddPoints(1000)}>
+            <div className={`${pointsBtn ? "add-points-container" : "hide-container"}`}>
+               <button className="points-btn" type="button" onClick={() => handleSubmit(1000)}>
                   Add 1000
                   <img className="coin-icon" src={coin} alt="" />
                </button>
-               <button className="points-btn" onClick={() => setAddPoints(5000)}>
+               <button className="points-btn" type="button" onClick={() => handleSubmit(5000)}>
                   Add 5000
                   <img className="coin-icon" src={coin} alt="" />
                </button>
-               <button className="points-btn" onClick={() => setAddPoints(7500)}>
+               <button className="points-btn" type="button" onClick={() => handleSubmit(7500)}>
                   Add 7500
                   <img className="coin-icon" src={coin} alt="" />
                </button>
-            </form>
+            </div>
             <div className="h1-pic-container">
                <h1 className="title">Electronics</h1>
                <img className="header-pic" src={headerPic} alt="" />

@@ -26,7 +26,7 @@ header {
    color: #616161;
 }
 
-.points-container {
+.total-points-btn {
    display: flex;
    margin-left: 27px;
    justify-content: center;
@@ -36,10 +36,16 @@ header {
    height: 48px;
    border-radius: 100px;
    cursor: pointer;
+   transition: all 0.5s ease 0s;
+   color: #616161;
+   border: none;
 }
 
-.points {
-   color: #616161;
+.total-points-btn:hover {
+   background-color: #0ad4fa;
+   cursor: pointer;
+   transition: all 0.5s ease 0s;
+   color: #ffffff;
 }
 
 .coin-icon {
@@ -50,25 +56,41 @@ header {
 .add-points-picture-container {
    position: relative;
 }
+
 .add-points-container {
    position: absolute;
    z-index: 1;
-   left: 84%;
+   left: 82%;
    top: 10px;
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-items: center;
+   background-color: rgb(255, 255, 255, 0.8);
+   width: 200px;
+   height: 250px;
+   border-radius: 8px;
+   visibility: visible;
+   opacity: 1;
+   transition: opacity 1s, visibility 1s;
 }
 
-input {
-   background-color: #ebe6e6;
-   border-radius: 100px;
-   border: none;
-   width: 230px;
-   height: 48px;
-   text-align: center;
-   outline: none;
+.hide-container {
+   position: absolute;
+   z-index: 1;
+   left: 82%;
+   top: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: rgb(255, 255, 255, 0.8);
+   width: 200px;
+   height: 250px;
+   border-radius: 8px;
+   visibility: hidden;
+   opacity: 0;
+   transition: opacity 1s, visibility 1s;
 }
 
 .points-btn {
@@ -82,11 +104,14 @@ input {
    border: none;
    color: #616161;
    margin: 5px 0 5px 0;
-   cursor: pointer;
+   transition: all 0.5s ease 0s;
 }
 
-.hide {
-   display: none;
+.points-btn:hover {
+   background-color: #0ad4fa;
+   cursor: pointer;
+   transition: all 0.5s ease 0s;
+   color: #fff;
 }
 
 .h1-pic-container {

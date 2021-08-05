@@ -1,45 +1,25 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AppContext } from "../../contexts/AppContext";
-import { uniqueId } from "lodash";
 import "./Products.css";
-import buyBlue from "../../assets/icons/buy-blue.svg";
-import buyWhite from "../../assets/icons/buy-white.svg";
-import coin from "../../assets/icons/coin.svg";
+import PurchaseHistory from "./components/PurchaseHistory";
+import ProductList from "./components/ProductsList";
+import { uniqueId } from "lodash";
 
-function Products() {
+function Products({ currentProducts }) {
    //Context
-   const { points, categoryFilter, priceFilter, buyBtn, setBuyBtn, requestProduct, setRequestProduct, currentPage, postPerPage } =
-      useContext(AppContext);
+   const { points, purchaseHistoryBtn } = useContext(AppContext);
 
-   //Filter functions
-   const filterFunctions = () => {
-      const filterProducts = requestProduct
-         //Filter by category
-         .filter((prod) => {
-            if (categoryFilter !== "Category") {
-               return categoryFilter === prod.category;
-            } else {
-               return prod;
-            }
-         })
-         //Filter by price
-         .sort((a, b) => {
-            if (priceFilter.sort === "Highest price") {
-               return b.cost - a.cost;
-            } else if (priceFilter.sort === "Lowest price") {
-               return a.cost - b.cost;
-            }
-            return priceFilter;
-         });
+   //Hook
+   // const [redeemBtn, setRedeemBtn] = useState(false);
+   const [isPending, setIsPending] = useState(false);
+   const [isCompleted, setIsCompleted] = useState(false);
+   const [error, setError] = useState(null);
 
-      return filterProducts;
-   };
+   //Redeem products Handler
+   const handleSubmit = (id) => {
+      setIsPending(true);
 
-   const filteredProducts = filterFunctions();
-
-   // useEffect
-   useEffect(() => {
-      //Api request
+      //Post request to redeem products
       async function infoRequest() {
          //Api authentication
          const headers = {
@@ -48,68 +28,63 @@ function Products() {
             Authorization:
                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWRkOWU5OTQ0NGZlNDAwNmRhOTkyNGQiLCJpYXQiOjE1OTE1ODIzNjF9.-f40dyUIGFsBSB_PTeBGdSLI58I21-QBJNi9wkODcKk",
          };
-         const request = async () => await fetch(`https://coding-challenge-api.aerolab.co/products`, { headers });
+         const request = async () =>
+            await fetch(`https://coding-challenge-api.aerolab.co/redeem`, {
+               method: "POST",
+               headers,
+               body: JSON.stringify({ productId: id }),
+            });
          try {
             const response = await request();
+            if (!response.ok) {
+               throw Error("Error! Could not complete the request");
+            }
+            console.log("response:", response);
             const res = await response.json();
-            setRequestProduct(res);
+            setIsPending(false);
+            setError(null);
+            setIsCompleted(true);
+            setTimeout(() => {
+               setIsCompleted(false);
+            }, 5000);
+            console.log("Redeem Product:", res);
          } catch (error) {
+            setIsPending(false);
+            setError(error.message);
+            setTimeout(() => {
+               setError(null);
+            }, 7000);
+            setIsCompleted(false);
             console.log(error);
          }
       }
       infoRequest();
-   }, [setRequestProduct]);
-
-   //Pagination - Get current products
-   const indexOfLastPost = currentPage * postPerPage;
-   const indexOfFirstPost = indexOfLastPost - postPerPage;
-   const currentProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
+   };
 
    return (
-      <div className="products-main-container">
-         {(currentProducts || []).map((products, i) => {
-            //Find missing coins
-            let missingPoins = (points - products.cost) * -1;
-            return (
-               <div key={uniqueId()} className={`${buyBtn === i ? "products-container-blue" : "products-container"}`}>
-                  {/* conditional rendering for redeem now window */}
-                  {buyBtn === i ? (
-                     <div className="redeem-main-container">
-                        <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
-                        <img className="buy-icon" src={buyWhite} alt="" onClick={() => setBuyBtn("")} />
-                        <div className="reedem-container">
-                           <div className="coins-amount-container">
-                              <p className="coins-p">12.000</p>
-                              <img className="coins-icon" src={coin} alt="" />
-                           </div>
-                           <button className="redeem-btn">Redeem Now</button>
-                        </div>
-                     </div>
-                  ) : (
-                     <div className="pic-icon-container">
-                        <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
-                        {/* conditional rendering for missing points */}
-                        {products.cost < points ? (
-                           <img className="buy-icon" src={buyBlue} alt="" onClick={() => setBuyBtn(i)} />
-                        ) : (
-                           <div className="missing-coins-container">
-                              <p className="missing-coins-p">You need {missingPoins}</p>
-                              <img className="missing-coins-icon" src={coin} alt="" />
-                           </div>
-                        )}
-                     </div>
-                  )}
-                  <div className="p-container">
-                     <p className="product-category" key={uniqueId()}>
-                        {products.category}
-                     </p>
-                     <p className="product-name" key={uniqueId()}>
-                        {products.name}
-                     </p>
-                  </div>
-               </div>
-            );
-         })}
+      <div>
+         {!purchaseHistoryBtn ? (
+            <div className="products-main-container">
+               {(currentProducts || []).map((products, i) => {
+                  //Find missing coins
+                  const missingPoins = (points - products.cost) * -1;
+                  return (
+                     <ProductList
+                        missingPoins={missingPoins}
+                        i={i}
+                        products={products}
+                        isPending={isPending}
+                        isCompleted={isCompleted}
+                        error={error}
+                        handleSubmit={handleSubmit}
+                        key={uniqueId()}
+                     />
+                  );
+               })}
+            </div>
+         ) : (
+            <PurchaseHistory />
+         )}
       </div>
    );
 }

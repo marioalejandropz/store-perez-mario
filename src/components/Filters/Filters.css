@@ -46,14 +46,47 @@
    margin-right: 24px;
    text-align: center;
    text-align-last: center;
+   transition: all 0.5s ease 0s;
+   outline: none;
 }
 
 .filter:hover {
    background-color: #0ad4fa;
    color: #fff;
    cursor: pointer;
+   transition: all 0.5s ease 0s;
 }
 
-.filter-price {
-   margin-right: 375px;
+.purchase-history-btn {
+   background: #ebe6e6;
+   border-radius: 100px;
+   width: 200px;
+   height: 48px;
+   font-size: 24px;
+   color: #a3a3a3;
+   letter-spacing: -0.15px;
+   line-height: 48px;
+   text-align: center;
+   border: none;
+   margin-right: 24px;
+   text-align: center;
+   text-align-last: center;
+   transition: all 0.5s ease 0s;
+   outline: none;
+   margin-right: 125px;
+}
+
+.purchase-history-btn:hover {
+   background-color: #0ad4fa;
+   color: #fff;
+   cursor: pointer;
+   transition: all 0.5s ease 0s;
+}
+
+.pagination-component {
+   display: flex;
+}
+
+.hide-component {
+   display: none;
 }

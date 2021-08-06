@@ -36,6 +36,7 @@ function ProductList({ missingPoins, i, products, isPending, isCompleted, error,
                      <p className="coins-p">{products.cost}</p>
                      <img className="coins-icon" src={coin} alt="" />
                   </div>
+                  {/* Conditionals to handle redeem requests and errors */}
                   {!isPending && (
                      <button className="redeem-btn" type="button" onClick={() => handleSubmit(products._id)}>
                         Redeem Now

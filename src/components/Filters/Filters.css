@@ -60,7 +60,7 @@
 .purchase-history-btn {
    background: #ebe6e6;
    border-radius: 100px;
-   width: 200px;
+   width: 220px;
    height: 48px;
    font-size: 24px;
    color: #a3a3a3;
@@ -73,7 +73,7 @@
    text-align-last: center;
    transition: all 0.5s ease 0s;
    outline: none;
-   margin-right: 125px;
+   margin-right: 105px;
 }
 
 .purchase-history-btn:hover {

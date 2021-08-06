@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 import "./Footer.css";
 import Pagination from "../../utils/components/Pagination/Pagination";
 import useFetchGet from "../../hooks/useFetchGet";
 
-function Footer({ currentProducts, categoryFilter, indexOfLastPost, setCurrentPage, postPerPage }) {
+function Footer({ currentProducts, indexOfLastPost }) {
+   //Context
+   const { categoryFilter } = useContext(AppContext);
+
    //Custom Hooks
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
@@ -21,7 +25,7 @@ function Footer({ currentProducts, categoryFilter, indexOfLastPost, setCurrentPa
                   </div>
                )}
             </div>
-            {currentProducts.length < 16 ? <></> : <Pagination setCurrentPage={setCurrentPage} postPerPage={postPerPage} />}
+            {currentProducts.length < 16 ? <></> : <Pagination />}
          </div>
       </footer>
    );

@@ -6,9 +6,9 @@ import arrowRight from "../../../assets/icons/arrow-right.svg";
 import { uniqueId } from "lodash";
 import useFetchGet from "../../../hooks/useFetchGet";
 
-const Pagination = ({ setCurrentPage, postPerPage }) => {
+const Pagination = () => {
    //Context
-   const { setBuyBtn /*, requestProduct*/ } = useContext(AppContext);
+   const { setBuyBtn, setCurrentPage, postPerPage } = useContext(AppContext);
 
    //Custom Hook
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);

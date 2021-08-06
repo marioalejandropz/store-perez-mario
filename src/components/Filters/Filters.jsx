@@ -4,14 +4,15 @@ import "./Filters.css";
 import Pagination from "../../utils/components/Pagination/Pagination";
 import useFetchGet from "../../hooks/useFetchGet";
 
-function Filters({ categoryFilter, setCategoryFilter, setPriceFilter, currentProducts, setCurrentPage, postPerPage, indexOfLastPost }) {
+function Filters({ currentProducts, indexOfLastPost }) {
    //Context
-   const { setPurchaseHistoryBtn, purchaseHistory } = useContext(AppContext);
+   const { setPurchaseHistoryBtn, purchaseHistoryBtn, categoryFilter, setCategoryFilter, setPriceFilter } = useContext(AppContext);
 
    //Custom Hook
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
-   console.log("currentProducts:", currentProducts);
+   // console.log("currentProducts:", currentProducts);
+
    return (
       <div className="filters-container">
          {categoryFilter !== "Category" ? (
@@ -45,10 +46,16 @@ function Filters({ categoryFilter, setCategoryFilter, setPriceFilter, currentPro
             <option value="Highest price">Highest price</option>
          </select>
          <div className="vertical-line"></div>
-         <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistory)}>
-            Purchase History
-         </button>
-         {currentProducts.length < 16 ? <></> : <Pagination setCurrentPage={setCurrentPage} postPerPage={postPerPage} />}
+         {!purchaseHistoryBtn ? (
+            <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
+               Purchase History
+            </button>
+         ) : (
+            <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
+               Available Products
+            </button>
+         )}
+         {currentProducts.length < 16 ? <></> : <Pagination />}
       </div>
    );
 }

@@ -10,10 +10,10 @@ function Products({ currentProducts }) {
    const { points, purchaseHistoryBtn } = useContext(AppContext);
 
    //Hook
-   // const [redeemBtn, setRedeemBtn] = useState(false);
    const [isPending, setIsPending] = useState(false);
    const [isCompleted, setIsCompleted] = useState(false);
    const [error, setError] = useState(null);
+   const [redeemProduct, setRedeemProduct] = useState([]);
 
    //Redeem products Handler
    const handleSubmit = (id) => {
@@ -39,8 +39,9 @@ function Products({ currentProducts }) {
             if (!response.ok) {
                throw Error("Error! Could not complete the request");
             }
-            console.log("response:", response);
+            // console.log("response:", response);
             const res = await response.json();
+            setRedeemProduct(res);
             setIsPending(false);
             setError(null);
             setIsCompleted(true);
@@ -62,7 +63,7 @@ function Products({ currentProducts }) {
    };
 
    return (
-      <div>
+      <div className="purchaseHistory-container">
          {!purchaseHistoryBtn ? (
             <div className="products-main-container">
                {(currentProducts || []).map((products, i) => {
@@ -83,7 +84,7 @@ function Products({ currentProducts }) {
                })}
             </div>
          ) : (
-            <PurchaseHistory />
+            <PurchaseHistory redeemProduct={redeemProduct} />
          )}
       </div>
    );

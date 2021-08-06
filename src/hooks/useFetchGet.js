@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useFetchGet(url) {
+function useFetchGet(url, redeemProduct) {
    // Hook
    const [requestData, setRequestData] = useState([]);
 
@@ -19,13 +19,13 @@ function useFetchGet(url) {
             const response = await request();
             const res = await response.json();
             setRequestData(res);
-            console.log("Request Product:", res);
+            // console.log("Request Product:", res);
          } catch (error) {
             console.log(error);
          }
       }
       infoRequest();
-   }, [setRequestData, url]);
+   }, [setRequestData, url, redeemProduct]);
    return requestData;
 }
 

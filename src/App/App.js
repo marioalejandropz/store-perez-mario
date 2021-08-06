@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AppProvider } from "../contexts/AppContext";
+import React, { useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 import "./App.css";
 import Header from "../components/Header/Header";
 import Filters from "../components/Filters/Filters";
@@ -8,11 +8,8 @@ import Footer from "../components/Footer/Footer";
 import useFetchGet from "../hooks/useFetchGet";
 
 function App() {
-   //Hooks
-   const [categoryFilter, setCategoryFilter] = useState("Category");
-   const [priceFilter, setPriceFilter] = useState("Price");
-   const [currentPage, setCurrentPage] = useState(1);
-   const [postPerPage] = useState(16);
+   //Context
+   const { categoryFilter, priceFilter, currentPage, postPerPage } = useContext(AppContext);
 
    //Custom Hooks
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
@@ -50,26 +47,10 @@ function App() {
 
    return (
       <div className="App">
-         <AppProvider>
-            <Header />
-            <Filters
-               categoryFilter={categoryFilter}
-               setCategoryFilter={setCategoryFilter}
-               setPriceFilter={setPriceFilter}
-               currentProducts={currentProducts}
-               setCurrentPage={setCurrentPage}
-               postPerPage={postPerPage}
-               indexOfLastPost={indexOfLastPost}
-            />
-            <Products filteredProducts={filteredProducts} currentProducts={currentProducts} />
-            <Footer
-               indexOfLastPost={indexOfLastPost}
-               categoryFilter={categoryFilter}
-               currentProducts={currentProducts}
-               setCurrentPage={setCurrentPage}
-               postPerPage={postPerPage}
-            />
-         </AppProvider>
+         <Header />
+         <Filters currentProducts={currentProducts} indexOfLastPost={indexOfLastPost} />
+         <Products currentProducts={currentProducts} />
+         <Footer indexOfLastPost={indexOfLastPost} currentProducts={currentProducts} />
       </div>
    );
 }

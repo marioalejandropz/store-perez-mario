@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./Pagination.css";
-import { AppContext } from "../../../contexts//AppContext";
+import { AppContext } from "../../../contexts/AppContext";
 import arrowLeft from "../../../assets/icons/arrow-left.svg";
 import arrowRight from "../../../assets/icons/arrow-right.svg";
 import { uniqueId } from "lodash";

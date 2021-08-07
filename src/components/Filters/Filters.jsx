@@ -4,26 +4,29 @@ import "./Filters.css";
 import Pagination from "../../utils/components/Pagination/Pagination";
 import useFetchGet from "../../hooks/useFetchGet";
 
-function Filters({ currentProducts, indexOfLastPost }) {
+function Filters({ availableProducts, indexOfLastPost }) {
    //Context
    const { setPurchaseHistoryBtn, purchaseHistoryBtn, categoryFilter, setCategoryFilter, setPriceFilter } = useContext(AppContext);
 
    //Custom Hook
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
-   // console.log("currentProducts:", currentProducts);
+   // console.log("availableProducts:", availableProducts);
 
    return (
       <div className="filters-container">
-         {categoryFilter !== "Category" ? (
-            <div className="amount-products">
-               {currentProducts.length} of {currentProducts.length} products
-            </div>
-         ) : (
-            <div className="amount-products">
-               {indexOfLastPost} of {requestData.length} products
-            </div>
-         )}
+         <div className={`${purchaseHistoryBtn ? "hide-amount" : ""}`}>
+            {categoryFilter !== "Category" ? (
+               <div className="amount-products text">
+                  {availableProducts.length} of {availableProducts.length} products
+               </div>
+            ) : (
+               <div className="amount-products">
+                  {indexOfLastPost} of {requestData.length} products
+               </div>
+            )}
+         </div>
+
          <div className="vertical-line"></div>
          <p className="sort-by">Sort by:</p>
          <select className="filter" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
@@ -47,15 +50,15 @@ function Filters({ currentProducts, indexOfLastPost }) {
          </select>
          <div className="vertical-line"></div>
          {!purchaseHistoryBtn ? (
-            <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
+            <button className="purchase-history-btn filter" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
                Purchase History
             </button>
          ) : (
-            <button className="purchase-history-btn" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
+            <button className="purchase-history-btn filter" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
                Available Products
             </button>
          )}
-         {currentProducts.length < 16 ? <></> : <Pagination />}
+         {availableProducts.length < 16 || purchaseHistoryBtn ? <></> : <Pagination />}
       </div>
    );
 }

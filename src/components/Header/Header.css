@@ -1,5 +1,8 @@
+/* Responsive version */
+
 header {
-   height: 492px;
+   /* height: 492px; */
+   min-width: 320px;
 }
 
 .logo-username-container {
@@ -9,40 +12,65 @@ header {
    justify-content: space-between;
 }
 
+.logo-darkmode-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
 .logo {
    height: 38px;
-   padding-left: 42px;
+   padding-left: 10px;
+}
+
+.darkmode-container {
+   border: 1px solid #d9d9d9;
+   cursor: pointer;
+   margin-left: 10px;
+   border-radius: 8px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 60px;
+   height: 48px;
+}
+
+.darkmode-btn {
+   height: 35px;
 }
 
 .username-points-container {
    display: flex;
    width: 215px;
-   margin-right: 48px;
+   margin-right: 10px;
    justify-content: center;
    align-items: center;
 }
 
 .username {
-   color: #616161;
+   color: var(--text-color-dark);
+   transition: color 0.5s ease;
+   /* margin-left: 10px; */
+   width: 65px;
 }
 
 .total-points-btn {
    display: flex;
-   margin-left: 27px;
+   margin-left: 10px;
    justify-content: center;
    align-items: center;
-   background-color: #ebe6e6;
-   width: 103px;
+   background-color: var(--btn-color);
+   width: 90px;
    height: 48px;
    border-radius: 100px;
    cursor: pointer;
-   transition: all 0.5s ease 0s;
-   color: #616161;
-   border: none;
+   color: var(--text-color-dark);
+   border: 1px solid #d9d9d9;
+   transition: all 0.5s ease;
 }
 
 .total-points-btn:hover {
-   background-color: #0ad4fa;
+   background-color: var(--btn-hover-color);
    cursor: pointer;
    transition: all 0.5s ease 0s;
    color: #ffffff;
@@ -60,7 +88,7 @@ header {
 .add-points-container {
    position: absolute;
    z-index: 1;
-   left: 82%;
+   left: 18%;
    top: 10px;
    display: flex;
    flex-direction: column;
@@ -72,7 +100,7 @@ header {
    border-radius: 8px;
    visibility: visible;
    opacity: 1;
-   transition: opacity 1s, visibility 1s;
+   transition: all 0.75s ease;
 }
 
 .hide-container {
@@ -90,25 +118,25 @@ header {
    border-radius: 8px;
    visibility: hidden;
    opacity: 0;
-   transition: opacity 1s, visibility 1s;
+   transition: all 0.75s ease;
 }
 
 .points-btn {
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #ebe6e6;
+   background-color: var(--btn-color);
    width: 150px;
    height: 48px;
    border-radius: 100px;
-   border: none;
-   color: #616161;
+   border: 1px solid #d9d9d9;
+   color: var(--text-color-dark);
    margin: 5px 0 5px 0;
-   transition: all 0.5s ease 0s;
+   transition: all 0.5s ease;
 }
 
 .points-btn:hover {
-   background-color: #0ad4fa;
+   background-color: var(--btn-hover-color);
    cursor: pointer;
    transition: all 0.5s ease 0s;
    color: #fff;
@@ -117,19 +145,21 @@ header {
 .h1-pic-container {
    overflow: hidden;
    position: relative;
-   height: 412px;
+   height: 130px;
+   width: 100%;
+   /* right: 150px; */
 }
 
 .title {
    position: absolute;
    color: #fff;
-   top: 284px;
-   left: 132px;
-   font-size: 64px;
+   top: 70px;
+   /* left: 132px; */
+   font-size: 35px;
 }
 
 .header-pic {
-   height: 115%;
+   /* height: 115%; */
    width: 100%;
    object-fit: cover;
 }
@@ -138,25 +168,25 @@ header {
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #fff;
+   background-color: #f4f8ff;
    width: 165px;
    height: 60px;
    border-radius: 8px;
-   border: none;
-   color: #616161;
+   border: 1px solid #d9d9d9;
+   color: var(--text-color-dark);
    margin-top: 10px;
+   transition: all 0.5s ease;
 }
 
 .points-message {
    display: flex;
    justify-content: center;
    align-items: center;
-   background-color: #fff;
    border-radius: 8px;
-   /* width: 165px; */
    height: 60px;
    border: none;
-   color: #616161;
+   color: var(--text-color-dark);
+   transition: color 0.5s ease;
 }
 
 .points-message-error {
@@ -167,7 +197,7 @@ header {
    width: 100px;
    border-radius: 8px;
    border: none;
-   color: #616161;
+   color: var(--text-color-dark);
 }
 
 .success-icon {
@@ -178,4 +208,166 @@ header {
 .error-icon {
    height: 24px;
    margin-left: 6px;
+}
+
+/* Desktop Version */
+@media only screen and (min-width: 800px) {
+   header {
+      height: 492px;
+   }
+
+   .logo-username-container {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+
+   .logo-darkmode-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .logo {
+      height: 38px;
+      padding-left: 42px;
+   }
+
+   .darkmode-container {
+      border: 1px solid #d9d9d9;
+      cursor: pointer;
+      margin-left: 24px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 48px;
+   }
+
+   .darkmode-btn {
+      height: 35px;
+   }
+
+   .username-points-container {
+      display: flex;
+      width: 215px;
+      margin-right: 48px;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .username {
+      color: var(--text-color-dark);
+      transition: color 0.5s ease;
+   }
+
+   .total-points-btn {
+      display: flex;
+      margin-left: 27px;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--btn-color);
+      width: 103px;
+      height: 48px;
+      border-radius: 100px;
+      cursor: pointer;
+      color: var(--text-color-dark);
+      border: 1px solid #d9d9d9;
+      transition: all 0.5s ease;
+   }
+
+   .total-points-btn:hover {
+      background-color: var(--btn-hover-color);
+      cursor: pointer;
+      transition: all 0.5s ease 0s;
+      color: #ffffff;
+   }
+
+   .coin-icon {
+      height: 24px;
+      margin-left: 6px;
+   }
+
+   .add-points-header-container {
+      position: relative;
+   }
+
+   .add-points-container {
+      position: absolute;
+      z-index: 1;
+      left: 82%;
+      top: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255, 0.8);
+      width: 200px;
+      height: 290px;
+      border-radius: 8px;
+      visibility: visible;
+      opacity: 1;
+      transition: all 0.75s ease;
+   }
+
+   .hide-container {
+      position: absolute;
+      z-index: 1;
+      left: 82%;
+      top: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255, 0.8);
+      width: 200px;
+      height: 290px;
+      border-radius: 8px;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.75s ease;
+   }
+
+   .points-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--btn-color);
+      width: 150px;
+      height: 48px;
+      border-radius: 100px;
+      border: 1px solid #d9d9d9;
+      color: var(--text-color-dark);
+      margin: 5px 0 5px 0;
+      transition: all 0.5s ease;
+   }
+
+   .points-btn:hover {
+      background-color: var(--btn-hover-color);
+      cursor: pointer;
+      transition: all 0.5s ease 0s;
+      color: #fff;
+   }
+
+   .h1-pic-container {
+      overflow: hidden;
+      position: relative;
+      height: 412px;
+   }
+
+   .title {
+      position: absolute;
+      color: #fff;
+      top: 284px;
+      left: 132px;
+      font-size: 64px;
+   }
+
+   .header-pic {
+      height: 115%;
+      width: 100%;
+      object-fit: cover;
+   }
 }

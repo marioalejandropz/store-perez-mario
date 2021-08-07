@@ -1,20 +1,23 @@
+/* Responsive version  */
 .filters-container {
    display: flex;
-   width: 1176px;
+   flex-wrap: wrap;
+   min-width: 320px;
    height: 137px;
    margin: auto;
-   align-items: flex-end;
-   justify-content: left;
+   align-items: center;
+   justify-content: center;
 }
 
 .amount-products {
    width: 174px;
    height: 48px;
-   color: #616161;
-   font-size: 24px;
-   letter-spacing: -0.15px;
-   line-height: 48px;
+   color: var(--text-color-dark);
    margin-right: 24px;
+   font-size: var(--font-size);
+   letter-spacing: var(--letter-spacing);
+   line-height: var(--line-height);
+   transition: all 0.5s ease 0s;
 }
 
 .vertical-line {
@@ -25,62 +28,41 @@
 }
 
 .sort-by {
-   font-size: 24px;
-   color: #a3a3a3;
-   letter-spacing: -0.15px;
-   line-height: 48px;
+   font-size: var(--font-size);
+   color: var(--text-color);
+   letter-spacing: var(--letter-spacing);
+   line-height: var(--line-height);
    margin-right: 24px;
 }
 
 .filter {
-   background: #ebe6e6;
+   background-color: var(--btn-color);
    border-radius: 100px;
    width: 172px;
    height: 48px;
-   font-size: 24px;
-   color: #a3a3a3;
-   letter-spacing: -0.15px;
-   line-height: 48px;
+   color: var(--text-color);
+   font-size: var(--font-size);
+   letter-spacing: var(--letter-spacing);
+   line-height: var(--line-height);
    text-align: center;
-   border: none;
+   border: 1px solid #d9d9d9;
    margin-right: 24px;
    text-align: center;
    text-align-last: center;
-   transition: all 0.5s ease 0s;
+   transition: all 0.5s ease;
    outline: none;
 }
 
 .filter:hover {
-   background-color: #0ad4fa;
+   background-color: var(--btn-hover-color);
    color: #fff;
    cursor: pointer;
    transition: all 0.5s ease 0s;
 }
 
 .purchase-history-btn {
-   background: #ebe6e6;
-   border-radius: 100px;
    width: 220px;
-   height: 48px;
-   font-size: 24px;
-   color: #a3a3a3;
-   letter-spacing: -0.15px;
-   line-height: 48px;
-   text-align: center;
-   border: none;
-   margin-right: 24px;
-   text-align: center;
-   text-align-last: center;
-   transition: all 0.5s ease 0s;
-   outline: none;
    margin-right: 105px;
-}
-
-.purchase-history-btn:hover {
-   background-color: #0ad4fa;
-   color: #fff;
-   cursor: pointer;
-   transition: all 0.5s ease 0s;
 }
 
 .pagination-component {
@@ -89,4 +71,16 @@
 
 .hide-component {
    display: none;
+}
+
+/* Desktop Version */
+@media only screen and (min-width: 800px) {
+   .filters-container {
+      display: flex;
+      width: 1176px;
+      height: 137px;
+      margin: auto;
+      align-items: flex-end;
+      justify-content: left;
+   }
 }

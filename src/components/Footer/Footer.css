@@ -18,8 +18,12 @@ footer {
    margin-right: 850px;
    width: 220px;
    height: 48px;
-   color: #616161;
-   font-size: 24px;
-   letter-spacing: -0.15px;
-   line-height: 48px;
+   color: var(--text-color-dark);
+   font-size: var(--font-size);
+   letter-spacing: var(--letter-spacing);
+   line-height: var(--line-height);
+}
+
+.hide-amount {
+   display: none;
 }

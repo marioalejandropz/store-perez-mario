@@ -1,0 +1,92 @@
+.App.darkMode {
+   background-color: rgb(44, 44, 44);
+   transition: background-color 0.5s ease;
+}
+
+.darkMode .general-container {
+   background-color: rgb(44, 44, 44);
+   transition: background-color 0.5s ease;
+}
+
+.darkMode .username {
+   color: #0ad4fa;
+   transition: color 0.5s ease;
+}
+
+.darkMode .total-points-btn {
+   background-color: rgb(44, 44, 44);
+   color: #0ad4fa;
+   border: 1px solid #d9d9d9;
+   transition: all 0.5s ease;
+}
+
+.darkMode .filter {
+   background-color: rgb(44, 44, 44);
+   color: var(--text-color);
+   border: 1px solid #d9d9d9;
+   transition: all 0.5s ease;
+}
+
+.darkMode .amount-products {
+   color: var(--text-color);
+   transition: all 0.5s ease;
+}
+
+.darkMode .products-container {
+   background-color: #616161;
+   transition: background-color 0.5s ease;
+}
+
+.darkMode .redeem-btn {
+   color: #ffffff;
+   background-color: #616161;
+   opacity: 0.8;
+   transition: all 0.5s ease;
+}
+
+.darkMode .redeem-message-container {
+   color: #ffffff;
+   background-color: #616161;
+   opacity: 0.8;
+   transition: all 0.5s ease;
+}
+
+.darkMode .product-category {
+   color: #ffffff;
+   transition: color 0.5s ease;
+}
+
+.darkMode .product-name {
+   color: #ffffff;
+   transition: color 0.5s ease;
+}
+
+.darkMode .add-points-container {
+   background-color: rgb(217, 217, 217, 0.8);
+   transition: opacity 1s, visibility 1s;
+   transition: all 0.75s ease;
+}
+
+.darkMode .hide-container {
+   background-color: rgb(217, 217, 217, 0.8);
+   transition: opacity 1s, visibility 1s;
+   transition: all 0.5s ease;
+}
+
+.darkMode .points-btn {
+   background-color: #616161;
+   opacity: 0.8;
+   color: #ffffff;
+   transition: all 0.5s ease;
+}
+
+.darkMode .points-message-container {
+   background-color: #616161;
+   opacity: 0.8;
+   transition: all 0.5s ease;
+}
+
+.darkMode .points-message {
+   color: #ffffff;
+   transition: color 0.5s ease;
+}

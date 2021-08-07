@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AppContext } from "../contexts/AppContext";
 import "./App.css";
+import "./darkMode.css";
 import Header from "../components/Header/Header";
 import Filters from "../components/Filters/Filters";
 import Products from "../components/Products/Products";
@@ -9,12 +10,12 @@ import useFetchGet from "../hooks/useFetchGet";
 
 function App() {
    //Context
-   const { categoryFilter, priceFilter, currentPage, postPerPage } = useContext(AppContext);
+   const { categoryFilter, priceFilter, currentPage, postPerPage, isDarkMode } = useContext(AppContext);
 
    //Custom Hooks
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
-   //Filter functions
+   //Filter functions available products
    const filterFunction = () => {
       const filterProducts = requestData
          //Filter by category
@@ -43,15 +44,17 @@ function App() {
    //Pagination - Get current products
    const indexOfLastPost = currentPage * postPerPage;
    const indexOfFirstPost = indexOfLastPost - postPerPage;
-   const currentProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
+   const availableProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
 
    return (
-      <div className="App">
-         <Header />
-         <Filters currentProducts={currentProducts} indexOfLastPost={indexOfLastPost} />
-         <Products currentProducts={currentProducts} />
-         <Footer indexOfLastPost={indexOfLastPost} currentProducts={currentProducts} />
-      </div>
+      <main className={`App ${isDarkMode ? "darkMode" : "App"}`}>
+         <div className="general-container">
+            <Header />
+            <Filters availableProducts={availableProducts} indexOfLastPost={indexOfLastPost} />
+            <Products availableProducts={availableProducts} />
+            <Footer indexOfLastPost={indexOfLastPost} availableProducts={availableProducts} />
+         </div>
+      </main>
    );
 }
 

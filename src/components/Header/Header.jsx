@@ -5,12 +5,14 @@ import "./Header.css";
 import headerPic from "../../assets/header-pics/header-x2.png";
 import logo from "../../assets/logo/aerolab-logo.svg";
 import coin from "../../assets/icons/coin.svg";
+import moon from "../../assets/icons/moon.svg";
+import sun from "../../assets/icons/sun.svg";
 import success from "../../assets/icons/success.svg";
 import errorIcon from "../../assets/icons/error.svg";
 
 function Header() {
    //Context
-   const { points, setRequestUser, requestUser } = useContext(AppContext);
+   const { points, setRequestUser, requestUser, isDarkMode, setIsDarkMode, redeemProduct } = useContext(AppContext);
 
    //Hooks
    const [pointsBtn, setPointsBtn] = useState(false);
@@ -85,12 +87,20 @@ function Header() {
          }
       }
       infoRequest();
-   }, [setRequestUser, requestPoints]);
+   }, [setRequestUser, requestPoints, redeemProduct]);
+
+   //Alternate between light and dark mode logo
+   const showLogo = () => (!isDarkMode ? moon : sun);
 
    return (
       <header>
          <div className="logo-username-container">
-            <img className="logo" src={logo} alt="" />
+            <div className="logo-darkmode-container">
+               <img className="logo" src={logo} alt="" />
+               <div className="darkmode-container" onClick={() => setIsDarkMode(!isDarkMode)}>
+                  <img className="darkmode-btn" src={showLogo()} alt="" />
+               </div>
+            </div>
             <div className="username-points-container">
                <div className="username" key={requestUser.id}>
                   {requestUser.name}

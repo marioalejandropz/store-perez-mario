@@ -5,15 +5,14 @@ import PurchaseHistory from "./components/PurchaseHistory";
 import ProductList from "./components/ProductsList";
 import { uniqueId } from "lodash";
 
-function Products({ currentProducts }) {
+function Products({ availableProducts }) {
    //Context
-   const { points, purchaseHistoryBtn } = useContext(AppContext);
+   const { points, purchaseHistoryBtn, inProgress, setRedeemProduct } = useContext(AppContext);
 
    //Hook
    const [isPending, setIsPending] = useState(false);
    const [isCompleted, setIsCompleted] = useState(false);
    const [error, setError] = useState(null);
-   const [redeemProduct, setRedeemProduct] = useState([]);
 
    //Redeem products Handler
    const handleSubmit = (id) => {
@@ -66,7 +65,7 @@ function Products({ currentProducts }) {
       <div className="purchaseHistory-container">
          {!purchaseHistoryBtn ? (
             <div className="products-main-container">
-               {(currentProducts || []).map((products, i) => {
+               {(availableProducts || []).map((products, i) => {
                   //Find missing coins
                   const missingPoins = (points - products.cost) * -1;
                   return (
@@ -84,8 +83,9 @@ function Products({ currentProducts }) {
                })}
             </div>
          ) : (
-            <PurchaseHistory redeemProduct={redeemProduct} />
+            <PurchaseHistory />
          )}
+         {inProgress && <div className="loading"></div>}
       </div>
    );
 }

@@ -1,11 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AppContext } from "../contexts/AppContext";
 
 function useFetchGet(url, redeemProduct) {
+   //Context
+   const { setInProgress } = useContext(AppContext);
+
    // Hook
    const [requestData, setRequestData] = useState([]);
 
    useEffect(() => {
-      // Api request to get products
+      // Api request to get available products or products history
+      setInProgress(true);
       async function infoRequest() {
          // Api authentication
          const headers = {
@@ -18,14 +23,16 @@ function useFetchGet(url, redeemProduct) {
          try {
             const response = await request();
             const res = await response.json();
+            setInProgress(false);
             setRequestData(res);
             // console.log("Request Product:", res);
          } catch (error) {
             console.log(error);
+            setInProgress(false);
          }
       }
       infoRequest();
-   }, [setRequestData, url, redeemProduct]);
+   }, [setRequestData, url, redeemProduct, setInProgress]);
    return requestData;
 }
 

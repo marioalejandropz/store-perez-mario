@@ -10,6 +10,9 @@ export const AppProvider = ({ children }) => {
    const [priceFilter, setPriceFilter] = useState("Price");
    const [currentPage, setCurrentPage] = useState(1);
    const [postPerPage] = useState(16);
+   const [inProgress, setInProgress] = useState(false);
+   const [isDarkMode, setIsDarkMode] = useState(false);
+   const [redeemProduct, setRedeemProduct] = useState([]);
 
    // User points
    const points = requestUser.points - 7447930 || "";
@@ -31,6 +34,12 @@ export const AppProvider = ({ children }) => {
             currentPage,
             setCurrentPage,
             postPerPage,
+            inProgress,
+            setInProgress,
+            isDarkMode,
+            setIsDarkMode,
+            redeemProduct,
+            setRedeemProduct,
          }}
       >
          {children}

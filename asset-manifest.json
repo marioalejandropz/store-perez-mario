@@ -1,23 +1,33 @@
 {
   "files": {
-    "main.css": "/store-perez-mario/static/css/main.a617e044.chunk.css",
-    "main.js": "/store-perez-mario/static/js/main.19e7bc1b.chunk.js",
-    "main.js.map": "/store-perez-mario/static/js/main.19e7bc1b.chunk.js.map",
-    "runtime-main.js": "/store-perez-mario/static/js/runtime-main.d99f2f8e.js",
-    "runtime-main.js.map": "/store-perez-mario/static/js/runtime-main.d99f2f8e.js.map",
-    "static/js/2.c9689868.chunk.js": "/store-perez-mario/static/js/2.c9689868.chunk.js",
-    "static/js/2.c9689868.chunk.js.map": "/store-perez-mario/static/js/2.c9689868.chunk.js.map",
-    "static/js/3.01e3d1c0.chunk.js": "/store-perez-mario/static/js/3.01e3d1c0.chunk.js",
-    "static/js/3.01e3d1c0.chunk.js.map": "/store-perez-mario/static/js/3.01e3d1c0.chunk.js.map",
+    "main.css": "/store-perez-mario/static/css/main.3d5aa429.chunk.css",
+    "main.js": "/store-perez-mario/static/js/main.1aeb2b1c.chunk.js",
+    "main.js.map": "/store-perez-mario/static/js/main.1aeb2b1c.chunk.js.map",
+    "runtime-main.js": "/store-perez-mario/static/js/runtime-main.d5b939e7.js",
+    "runtime-main.js.map": "/store-perez-mario/static/js/runtime-main.d5b939e7.js.map",
+    "static/js/2.26e4900c.chunk.js": "/store-perez-mario/static/js/2.26e4900c.chunk.js",
+    "static/js/2.26e4900c.chunk.js.map": "/store-perez-mario/static/js/2.26e4900c.chunk.js.map",
+    "static/js/3.95f17f0e.chunk.js": "/store-perez-mario/static/js/3.95f17f0e.chunk.js",
+    "static/js/3.95f17f0e.chunk.js.map": "/store-perez-mario/static/js/3.95f17f0e.chunk.js.map",
     "index.html": "/store-perez-mario/index.html",
-    "static/css/main.a617e044.chunk.css.map": "/store-perez-mario/static/css/main.a617e044.chunk.css.map",
-    "static/js/2.c9689868.chunk.js.LICENSE.txt": "/store-perez-mario/static/js/2.c9689868.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/store-perez-mario/static/media/logo.6ce24c58.svg"
+    "static/css/main.3d5aa429.chunk.css.map": "/store-perez-mario/static/css/main.3d5aa429.chunk.css.map",
+    "static/js/2.26e4900c.chunk.js.LICENSE.txt": "/store-perez-mario/static/js/2.26e4900c.chunk.js.LICENSE.txt",
+    "static/media/aerolab-logo.0a8fb170.svg": "/store-perez-mario/static/media/aerolab-logo.0a8fb170.svg",
+    "static/media/arrow-left.e6eb9be1.svg": "/store-perez-mario/static/media/arrow-left.e6eb9be1.svg",
+    "static/media/arrow-right.3306c112.svg": "/store-perez-mario/static/media/arrow-right.3306c112.svg",
+    "static/media/buy-blue.c5c4f01c.svg": "/store-perez-mario/static/media/buy-blue.c5c4f01c.svg",
+    "static/media/buy-white.9b6e6567.svg": "/store-perez-mario/static/media/buy-white.9b6e6567.svg",
+    "static/media/coin.b8bc711d.svg": "/store-perez-mario/static/media/coin.b8bc711d.svg",
+    "static/media/error.d42ef678.svg": "/store-perez-mario/static/media/error.d42ef678.svg",
+    "static/media/header-x2.cc65119a.png": "/store-perez-mario/static/media/header-x2.cc65119a.png",
+    "static/media/moon.eee837ef.svg": "/store-perez-mario/static/media/moon.eee837ef.svg",
+    "static/media/success.08385652.svg": "/store-perez-mario/static/media/success.08385652.svg",
+    "static/media/sun.2479fc5a.svg": "/store-perez-mario/static/media/sun.2479fc5a.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d99f2f8e.js",
-    "static/js/2.c9689868.chunk.js",
-    "static/css/main.a617e044.chunk.css",
-    "static/js/main.19e7bc1b.chunk.js"
+    "static/js/runtime-main.d5b939e7.js",
+    "static/js/2.26e4900c.chunk.js",
+    "static/css/main.3d5aa429.chunk.css",
+    "static/js/main.1aeb2b1c.chunk.js"
   ]
 }

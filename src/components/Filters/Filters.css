@@ -7,50 +7,43 @@
    margin: auto;
    align-items: center;
    justify-content: center;
+   margin-bottom: 20px;
 }
 
 .amount-products {
-   width: 174px;
    height: 48px;
    color: var(--text-color-dark);
-   margin-right: 24px;
-   font-size: var(--font-size);
+   font-size: 16px;
    letter-spacing: var(--letter-spacing);
    line-height: var(--line-height);
    transition: all 0.5s ease 0s;
-}
-
-.vertical-line {
-   border-left: 1px solid #d9d9d9;
-   height: 49px;
-   width: 1px;
-   margin-right: 24px;
+   margin-left: 10px;
 }
 
 .sort-by {
-   font-size: var(--font-size);
+   font-size: 16px;
    color: var(--text-color);
    letter-spacing: var(--letter-spacing);
    line-height: var(--line-height);
-   margin-right: 24px;
+   margin: 0 25px 0 15px;
 }
 
 .filter {
    background-color: var(--btn-color);
    border-radius: 100px;
-   width: 172px;
-   height: 48px;
+   width: 100px;
+   height: 30px;
    color: var(--text-color);
-   font-size: var(--font-size);
+   font-size: 16px;
    letter-spacing: var(--letter-spacing);
    line-height: var(--line-height);
    text-align: center;
    border: 1px solid #d9d9d9;
-   margin-right: 24px;
    text-align: center;
    text-align-last: center;
    transition: all 0.5s ease;
    outline: none;
+   margin-right: 15px;
 }
 
 .filter:hover {
@@ -61,8 +54,10 @@
 }
 
 .purchase-history-btn {
-   width: 220px;
-   margin-right: 105px;
+   width: 150px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 .pagination-component {
@@ -76,11 +71,37 @@
 /* Desktop Version */
 @media only screen and (min-width: 800px) {
    .filters-container {
-      display: flex;
-      width: 1176px;
-      height: 137px;
-      margin: auto;
+      height: 120px;
       align-items: flex-end;
-      justify-content: left;
+   }
+
+   .amount-products {
+      width: 174px;
+      margin: 0 24px 0 0;
+      font-size: var(--font-size);
+   }
+
+   .vertical-line {
+      border-left: 1px solid #d9d9d9;
+      height: 49px;
+      width: 1px;
+      margin-right: 24px;
+   }
+
+   .sort-by {
+      font-size: var(--font-size);
+      margin: 0 24px 0 0;
+   }
+
+   .filter {
+      width: 172px;
+      height: 48px;
+      margin-right: 24px;
+      font-size: var(--font-size);
+   }
+
+   .purchase-history-btn {
+      width: 220px;
+      margin-right: 105px;
    }
 }

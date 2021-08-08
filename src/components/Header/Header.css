@@ -1,12 +1,11 @@
 /* Responsive version */
-
 header {
-   /* height: 492px; */
    min-width: 320px;
 }
 
+/* //change */
 .logo-username-container {
-   height: 80px;
+   height: 60px;
    display: flex;
    align-items: center;
    justify-content: space-between;
@@ -19,7 +18,7 @@ header {
 }
 
 .logo {
-   height: 38px;
+   height: 25px;
    padding-left: 10px;
 }
 
@@ -31,18 +30,18 @@ header {
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 60px;
-   height: 48px;
+   width: 30px;
+   height: 30px;
 }
 
 .darkmode-btn {
-   height: 35px;
+   height: 25px;
 }
 
 .username-points-container {
    display: flex;
    width: 215px;
-   margin-right: 10px;
+   margin-left: 15px;
    justify-content: center;
    align-items: center;
 }
@@ -50,7 +49,6 @@ header {
 .username {
    color: var(--text-color-dark);
    transition: color 0.5s ease;
-   /* margin-left: 10px; */
    width: 65px;
 }
 
@@ -60,8 +58,8 @@ header {
    justify-content: center;
    align-items: center;
    background-color: var(--btn-color);
-   width: 90px;
-   height: 48px;
+   width: 80px;
+   height: 30px;
    border-radius: 100px;
    cursor: pointer;
    color: var(--text-color-dark);
@@ -145,21 +143,19 @@ header {
 .h1-pic-container {
    overflow: hidden;
    position: relative;
-   height: 130px;
+   height: 110px;
    width: 100%;
-   /* right: 150px; */
 }
 
 .title {
    position: absolute;
    color: #fff;
-   top: 70px;
-   /* left: 132px; */
+   top: 50px;
    font-size: 35px;
+   margin-left: 10px;
 }
 
 .header-pic {
-   /* height: 115%; */
    width: 100%;
    object-fit: cover;
 }
@@ -218,15 +214,6 @@ header {
 
    .logo-username-container {
       height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-   }
-
-   .logo-darkmode-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
    }
 
    .logo {
@@ -235,13 +222,7 @@ header {
    }
 
    .darkmode-container {
-      border: 1px solid #d9d9d9;
-      cursor: pointer;
       margin-left: 24px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 60px;
       height: 48px;
    }
@@ -251,115 +232,35 @@ header {
    }
 
    .username-points-container {
-      display: flex;
-      width: 215px;
       margin-right: 48px;
-      justify-content: center;
-      align-items: center;
    }
 
    .username {
-      color: var(--text-color-dark);
-      transition: color 0.5s ease;
+      font-size: var(--font-size);
+      width: 180px;
+      position: relative;
+      right: 40px;
    }
 
    .total-points-btn {
-      display: flex;
-      margin-left: 27px;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--btn-color);
-      width: 103px;
+      width: 200px;
       height: 48px;
-      border-radius: 100px;
-      cursor: pointer;
-      color: var(--text-color-dark);
-      border: 1px solid #d9d9d9;
-      transition: all 0.5s ease;
-   }
-
-   .total-points-btn:hover {
-      background-color: var(--btn-hover-color);
-      cursor: pointer;
-      transition: all 0.5s ease 0s;
-      color: #ffffff;
-   }
-
-   .coin-icon {
-      height: 24px;
-      margin-left: 6px;
-   }
-
-   .add-points-header-container {
-      position: relative;
+      font-size: var(--font-size);
    }
 
    .add-points-container {
-      position: absolute;
-      z-index: 1;
       left: 82%;
-      top: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(255, 255, 255, 0.8);
-      width: 200px;
-      height: 290px;
-      border-radius: 8px;
-      visibility: visible;
-      opacity: 1;
-      transition: all 0.75s ease;
-   }
-
-   .hide-container {
-      position: absolute;
-      z-index: 1;
-      left: 82%;
-      top: 10px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background-color: rgb(255, 255, 255, 0.8);
-      width: 200px;
-      height: 290px;
-      border-radius: 8px;
-      visibility: hidden;
-      opacity: 0;
-      transition: all 0.75s ease;
    }
 
    .points-btn {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: var(--btn-color);
-      width: 150px;
-      height: 48px;
-      border-radius: 100px;
-      border: 1px solid #d9d9d9;
-      color: var(--text-color-dark);
-      margin: 5px 0 5px 0;
-      transition: all 0.5s ease;
-   }
-
-   .points-btn:hover {
-      background-color: var(--btn-hover-color);
-      cursor: pointer;
-      transition: all 0.5s ease 0s;
-      color: #fff;
+      font-size: 18px;
    }
 
    .h1-pic-container {
-      overflow: hidden;
-      position: relative;
       height: 412px;
    }
 
    .title {
-      position: absolute;
-      color: #fff;
       top: 284px;
       left: 132px;
       font-size: 64px;
@@ -367,7 +268,5 @@ header {
 
    .header-pic {
       height: 115%;
-      width: 100%;
-      object-fit: cover;
    }
 }

@@ -1,21 +1,22 @@
+/* Responsive version */
 footer {
-   width: 1176px;
+   min-width: 320px;
    height: 140px;
    margin: auto;
    display: flex;
+   justify-content: center;
    align-items: center;
-   margin-top: 20px;
 }
 
 .amount-container {
    display: flex;
    padding-bottom: 20px;
-   width: 1176px;
    border-bottom: 1px solid #d9d9d9;
+   justify-content: center;
+   align-items: center;
 }
 
 .amount-products-footer {
-   margin-right: 850px;
    width: 220px;
    height: 48px;
    color: var(--text-color-dark);
@@ -26,4 +27,16 @@ footer {
 
 .hide-amount {
    display: none;
+}
+
+/* Desktop Version */
+@media only screen and (min-width: 800px) {
+   footer {
+      width: 1176px;
+      margin-top: 20px;
+   }
+
+   .amount-products-footer {
+      margin-right: 850px;
+   }
 }

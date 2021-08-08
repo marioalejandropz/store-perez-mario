@@ -1,12 +1,13 @@
+/* Responsive version */
 .arrow-left {
-   height: 48px;
-   margin-right: 12px;
+   height: 35px;
+   margin-right: 5px;
    transition: all 0.5s ease 0s;
    border-radius: 100%;
 }
 
 .arrow-right {
-   height: 48px;
+   height: 35px;
    transition: all 0.5s ease 0s;
    border-radius: 100%;
 }
@@ -20,4 +21,17 @@
    cursor: pointer;
    transition: all 0.5s ease 0s;
    color: #fff;
+}
+
+/* Desktop Version */
+@media only screen and (min-width: 800px) {
+   .arrow-left {
+      height: 48px;
+      margin-right: 12px;
+   }
+
+   .arrow-right {
+      height: 48px;
+      border-radius: 100%;
+   }
 }

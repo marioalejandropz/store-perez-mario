@@ -17,11 +17,15 @@ function Footer({ availableProducts, indexOfLastPost }) {
             <div className="amount-products-footer">
                {categoryFilter !== "Category" ? (
                   <div className="amount-products">
-                     {availableProducts.length} of {availableProducts.length} products
+                     <p>
+                        {availableProducts.length} of {availableProducts.length} products
+                     </p>
                   </div>
                ) : (
                   <div className="amount-products">
-                     {indexOfLastPost} of {requestData.length} products
+                     <p>
+                        {indexOfLastPost} of {requestData.length} products
+                     </p>
                   </div>
                )}
             </div>

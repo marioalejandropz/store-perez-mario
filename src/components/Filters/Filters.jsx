@@ -18,11 +18,15 @@ function Filters({ availableProducts, indexOfLastPost }) {
          <div className={`${purchaseHistoryBtn ? "hide-amount" : ""}`}>
             {categoryFilter !== "Category" ? (
                <div className="amount-products text">
-                  {availableProducts.length} of {availableProducts.length} products
+                  <p>
+                     {availableProducts.length} of {availableProducts.length} products
+                  </p>
                </div>
             ) : (
                <div className="amount-products">
-                  {indexOfLastPost} of {requestData.length} products
+                  <p className="amount-products">
+                     {indexOfLastPost} of {requestData.length} products
+                  </p>
                </div>
             )}
          </div>

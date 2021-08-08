@@ -3,7 +3,6 @@
 .products-main-container {
    min-width: 320px;
    margin: auto;
-   margin-top: 25px;
    border-top: 1px solid #d9d9d9;
    display: flex;
    flex-wrap: wrap;
@@ -20,6 +19,7 @@
    position: relative;
    margin: auto;
    transition: all 0.5s ease;
+   margin-bottom: 20px;
 }
 
 .products-container-blue {
@@ -28,9 +28,9 @@
    background-color: #ffffff;
    box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
    overflow: hidden;
-   margin-top: 42px;
    position: relative;
    margin: auto;
+   margin-bottom: 20px;
 }
 
 .products-container-blue::after {
@@ -43,6 +43,7 @@
    left: 0;
    opacity: 0.8;
    z-index: 0;
+   margin-bottom: 20px;
 }
 
 .pic-icon-container {
@@ -62,7 +63,7 @@
 }
 
 .buy-icon {
-   height: 42px;
+   height: 30px;
    position: absolute;
    bottom: 220px;
    right: 15px;
@@ -234,12 +235,14 @@
 @media only screen and (min-width: 800px) {
    .products-main-container {
       width: 1176px;
-      margin: auto;
       margin-top: 25px;
-      border-top: 1px solid #d9d9d9;
       display: grid;
       grid-template-columns: 25% 25% 25% 25%;
       grid-row-gap: 24px;
       padding-top: 42px;
+   }
+
+   .buy-icon {
+      height: 42px;
    }
 }

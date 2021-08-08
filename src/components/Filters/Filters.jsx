@@ -8,14 +8,13 @@ function Filters({ availableProducts, indexOfLastPost }) {
    //Context
    const { setPurchaseHistoryBtn, purchaseHistoryBtn, categoryFilter, setCategoryFilter, setPriceFilter } = useContext(AppContext);
 
-   //Custom Hook
+   //Custom Hook to request available products
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
-
-   // console.log("availableProducts:", availableProducts);
 
    return (
       <div className="filters-container">
          <div className={`${purchaseHistoryBtn ? "hide-amount" : ""}`}>
+            {/* Condition to render products per page */}
             {categoryFilter !== "Category" ? (
                <div className="amount-products text">
                   <p>
@@ -30,9 +29,9 @@ function Filters({ availableProducts, indexOfLastPost }) {
                </div>
             )}
          </div>
-
          <div className="vertical-line"></div>
          <p className="sort-by">Sort by:</p>
+         {/* Category filter */}
          <select className="filter" value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}>
             <option value="Category">Category</option>
             <option value="Phones">Phones</option>
@@ -47,12 +46,14 @@ function Filters({ availableProducts, indexOfLastPost }) {
             <option value="PC Accessories">PC Accessories</option>
             <option value="Tablets & E-readers">Tablets & E-readers</option>
          </select>
+         {/* Price filter */}
          <select className="filter" onChange={(e) => setPriceFilter({ sort: e.target.value })}>
             <option value="Price">Price</option>
             <option value="Lowest price">Lowest price</option>
             <option value="Highest price">Highest price</option>
          </select>
          <div className="vertical-line"></div>
+         {/* Condition to change between available products and purchased products vista */}
          {!purchaseHistoryBtn ? (
             <button className="purchase-history-btn filter" onClick={() => setPurchaseHistoryBtn(!purchaseHistoryBtn)}>
                Purchase History

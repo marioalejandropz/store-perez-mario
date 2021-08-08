@@ -8,13 +8,14 @@ function Footer({ availableProducts, indexOfLastPost }) {
    //Context
    const { categoryFilter, purchaseHistoryBtn } = useContext(AppContext);
 
-   //Custom Hooks
+   //Custom Hook
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
    return (
       <footer>
          <div className={`${purchaseHistoryBtn ? "hide-amount" : "amount-container"}`}>
             <div className="amount-products-footer">
+               {/* Condition to show the right amount of items per page even with the filters active */}
                {categoryFilter !== "Category" ? (
                   <div className="amount-products">
                      <p>

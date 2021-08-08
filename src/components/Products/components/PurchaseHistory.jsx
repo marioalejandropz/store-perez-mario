@@ -8,10 +8,10 @@ function PurchaseHistory() {
    //Context
    const { categoryFilter, priceFilter, redeemProduct } = useContext(AppContext);
 
-   //Custom Hook
+   //Custom Hook to request purchase history
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/user/history`, redeemProduct);
 
-   //Filter functions purchase history
+   //Filter functions for purchased products
    const filterFunction = () => {
       const filterProducts = requestData
          //Filter by category
@@ -40,14 +40,11 @@ function PurchaseHistory() {
    const currentDate = new Date();
    const timeWindow = new Date(currentDate.setDate(currentDate.getDate() - 2));
    //Function to render only the products redeemed during the last 2 days,
-   //because the array that contains that info has thousands of elements.
+   //because the info that comes from the API contains thousands of redeemed products.
    const redeemedProducts = filteredProducts.filter((e) => {
       const d = new Date(e.createDate);
       return d.getTime() > timeWindow;
    });
-
-   // console.log("lastSevenDays", lastSevenDays);
-   console.log("redeemedProducts", redeemedProducts);
 
    return (
       <div className="products-main-container">
@@ -55,10 +52,10 @@ function PurchaseHistory() {
             return (
                <div key={uniqueId()} className="products-container">
                   <div className="pic-icon-container">
-                     <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
+                     <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="electronic device" />
                      <div className="missing-coins-container">
                         <p className="coins-p-history">{products.cost}</p>
-                        <img className="missing-coins-icon" src={coin} alt="" />
+                        <img className="missing-coins-icon" src={coin} alt="Yellow and circular coin" />
                      </div>
                   </div>
                   <div className="p-container">

@@ -9,7 +9,7 @@ function Products({ availableProducts }) {
    //Context
    const { points, purchaseHistoryBtn, inProgress, setRedeemProduct } = useContext(AppContext);
 
-   //Hook
+   //Hooks
    const [isPending, setIsPending] = useState(false);
    const [isCompleted, setIsCompleted] = useState(false);
    const [error, setError] = useState(null);
@@ -38,7 +38,6 @@ function Products({ availableProducts }) {
             if (!response.ok) {
                throw Error("Error! Could not complete the request");
             }
-            // console.log("response:", response);
             const res = await response.json();
             setRedeemProduct(res);
             setIsPending(false);
@@ -47,7 +46,6 @@ function Products({ availableProducts }) {
             setTimeout(() => {
                setIsCompleted(false);
             }, 5000);
-            console.log("Redeem Product:", res);
          } catch (error) {
             setIsPending(false);
             setError(error.message);
@@ -55,7 +53,6 @@ function Products({ availableProducts }) {
                setError(null);
             }, 7000);
             setIsCompleted(false);
-            console.log(error);
          }
       }
       infoRequest();
@@ -63,10 +60,11 @@ function Products({ availableProducts }) {
 
    return (
       <div className="purchaseHistory-container">
+         {/* Condition to render the available products or the purchase history vista */}
          {!purchaseHistoryBtn ? (
             <div className="products-main-container">
                {(availableProducts || []).map((products, i) => {
-                  //Find missing coins
+                  //Find missing points
                   const missingPoins = (points - products.cost) * -1;
                   return (
                      <ProductList
@@ -85,6 +83,7 @@ function Products({ availableProducts }) {
          ) : (
             <PurchaseHistory />
          )}
+         {/* Loading animation */}
          {inProgress && <div className="loading"></div>}
       </div>
    );

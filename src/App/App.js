@@ -15,7 +15,7 @@ function App() {
    //Custom Hooks
    const requestData = useFetchGet(`https://coding-challenge-api.aerolab.co/products`);
 
-   //Filter functions available products
+   //Filter functions for available products
    const filterFunction = () => {
       const filterProducts = requestData
          //Filter by category
@@ -47,6 +47,7 @@ function App() {
    const availableProducts = filteredProducts.slice(indexOfFirstPost, indexOfLastPost);
 
    return (
+      // Darkmode condition
       <main className={`App ${isDarkMode ? "darkMode" : "App"}`}>
          <div className="general-container">
             <Header />

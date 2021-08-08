@@ -25,10 +25,9 @@ function useFetchGet(url, redeemProduct) {
             const res = await response.json();
             setInProgress(false);
             setRequestData(res);
-            // console.log("Request Product:", res);
          } catch (error) {
-            console.log(error);
             setInProgress(false);
+            console.log(error);
          }
       }
       infoRequest();

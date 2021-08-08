@@ -2,14 +2,16 @@
 .arrow-left {
    height: 35px;
    margin-right: 5px;
-   transition: all 0.5s ease 0s;
+   transition: background-color 0.5s ease 0s;
    border-radius: 100%;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .arrow-right {
    height: 35px;
-   transition: all 0.5s ease 0s;
+   transition: background-color 0.5s ease 0s;
    border-radius: 100%;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .hide {

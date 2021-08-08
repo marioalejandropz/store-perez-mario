@@ -52,7 +52,6 @@ function Header() {
             setTimeout(() => {
                setCompletedMsg(false);
             }, 5000);
-            // console.log("Request Add Points:", res);
          } catch (error) {
             setAddPointsError(error.message);
             setTimeout(() => {
@@ -60,14 +59,13 @@ function Header() {
             }, 7000);
             setIsLoading(false);
             setCompletedMsg(false);
-            console.log(error);
          }
       }
       infoRequest();
    };
 
    useEffect(() => {
-      //Api request for user info
+      //Api request to get the user info
       async function infoRequest() {
          //Api authentication
          const headers = {
@@ -81,7 +79,6 @@ function Header() {
             const response = await request();
             const res = await response.json();
             setRequestUser(res);
-            // console.log("Request UserInfo:", res);
          } catch (error) {
             console.log(error);
          }
@@ -96,10 +93,15 @@ function Header() {
       <header>
          <div className="logo-username-container">
             <div className="logo-darkmode-container">
-               <img className="logo" src={logo} alt="" />
-               <div className="darkmode-container" onClick={() => setIsDarkMode(!isDarkMode)}>
-                  <img className="darkmode-btn" src={showLogo()} alt="" />
-               </div>
+               <img className="logo" src={logo} alt="Page logo, an orange kite" />
+               {/* Alternate between light and dark mode */}
+               <button className="darkmode-container" onClick={() => setIsDarkMode(!isDarkMode)}>
+                  <img
+                     className="darkmode-btn"
+                     src={showLogo()}
+                     alt="Darkmode logo, a black moon when the page is light and a white sun when the page is dark"
+                  />
+               </button>
             </div>
             <div className="username-points-container">
                <div className="username" key={requestUser.id}>
@@ -107,7 +109,7 @@ function Header() {
                </div>
                <button key={uniqueId()} className="total-points-btn" onClick={() => setPointsBtn(!pointsBtn)}>
                   {points}
-                  <img className="coin-icon" src={coin} alt="" />
+                  <img className="coin-icon" src={coin} alt="Yellow and circular coin" />
                </button>
             </div>
          </div>
@@ -115,15 +117,15 @@ function Header() {
             <div className={`${pointsBtn ? "add-points-container" : "hide-container"}`}>
                <button className="points-btn" type="button" onClick={() => handleSubmit(1000)}>
                   Add 1000
-                  <img className="coin-icon" src={coin} alt="" />
+                  <img className="coin-icon" src={coin} alt="Yellow and circular coin" />
                </button>
                <button className="points-btn" type="button" onClick={() => handleSubmit(5000)}>
                   Add 5000
-                  <img className="coin-icon" src={coin} alt="" />
+                  <img className="coin-icon" src={coin} alt="Yellow and circular coin" />
                </button>
                <button className="points-btn" type="button" onClick={() => handleSubmit(7500)}>
                   Add 7500
-                  <img className="coin-icon" src={coin} alt="" />
+                  <img className="coin-icon" src={coin} alt="Yellow and circular coin" />
                </button>
                {/* Conditionals to handle point requests and errors */}
                {isLoading && (
@@ -134,7 +136,7 @@ function Header() {
                {completedMsg && (
                   <div className="points-message-container">
                      <p className="points-message">Success!</p>
-                     <img className="success-icon" src={success} alt="" />
+                     <img className="success-icon" src={success} alt="Green check symbol" />
                   </div>
                )}
                {addPointsError && (
@@ -143,14 +145,14 @@ function Header() {
                         <p className="points-message-error">{addPointsError}</p>
                      </div>
                      <div>
-                        <img className="error-icon" src={errorIcon} alt="" />
+                        <img className="error-icon" src={errorIcon} alt="Red circle with an exclamation mark inside" />
                      </div>
                   </div>
                )}
             </div>
             <div className="h1-pic-container">
                <h1 className="title">Electronics</h1>
-               <img className="header-pic" src={headerPic} alt="" />
+               <img className="header-pic" src={headerPic} alt="Blue headphones inside a blue banner background" />
             </div>
          </div>
       </header>

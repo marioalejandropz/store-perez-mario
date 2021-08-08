@@ -13,28 +13,28 @@ function ProductList({ missingPoins, i, products, isPending, isCompleted, error,
 
    return (
       <div key={uniqueId()} className={`${buyBtn === i ? "products-container-blue" : "products-container"}`}>
-         {/* conditional rendering for redeem now window */}
+         {/* Conditional rendering for redeem now window */}
          {buyBtn !== i ? (
             <div className="pic-icon-container">
-               <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
-               {/* conditional rendering for missing points */}
+               <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="electronic device" />
+               {/* Conditional rendering for purchase icon or missing points */}
                {products.cost < points ? (
-                  <img className="buy-icon" src={buyBlue} alt="" onClick={() => setBuyBtn(i)} />
+                  <img className="buy-icon" src={buyBlue} alt="white shopping bag inside a circular blue background" onClick={() => setBuyBtn(i)} />
                ) : (
                   <div className="missing-coins-container">
                      <p className="missing-coins-p">You need {missingPoins}</p>
-                     <img className="missing-coins-icon" src={coin} alt="" />
+                     <img className="missing-coins-icon" src={coin} alt="Yellow and circular coin" />
                   </div>
                )}
             </div>
          ) : (
             <div className="redeem-main-container">
-               <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="" />
-               <img className="buy-icon" src={buyWhite} alt="" onClick={() => setBuyBtn("")} />
+               <img className="product-pic" key={uniqueId()} src={products.img.hdUrl} alt="electronic device" />
+               <img className="buy-icon" src={buyWhite} alt="Blue shopping bag inside a circular white background" onClick={() => setBuyBtn("")} />
                <div className="reedem-container">
                   <div className="coins-amount-container">
                      <p className="coins-p">{products.cost}</p>
-                     <img className="coins-icon" src={coin} alt="" />
+                     <img className="coins-icon" src={coin} alt="Yellow and circular coin" />
                   </div>
                   {/* Conditionals to handle redeem requests and errors */}
                   {!isPending && (
@@ -46,13 +46,13 @@ function ProductList({ missingPoins, i, products, isPending, isCompleted, error,
                   {isCompleted && (
                      <div className="redeem-message-container">
                         <p> Success! </p>
-                        <img className="message-icon" src={success} alt="" />
+                        <img className="message-icon" src={success} alt="Green check symbol" />
                      </div>
                   )}
                   {error && (
                      <div className="redeem-error-container">
                         <p className="error-p"> {error} </p>
-                        <img className="message-icon" src={errorIcon} alt="" />
+                        <img className="message-icon" src={errorIcon} alt="Red circle with an exclamation mark inside" />
                      </div>
                   )}
                </div>

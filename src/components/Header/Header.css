@@ -3,7 +3,6 @@ header {
    min-width: 320px;
 }
 
-/* //change */
 .logo-username-container {
    height: 60px;
    display: flex;
@@ -32,6 +31,8 @@ header {
    align-items: center;
    width: 30px;
    height: 30px;
+   background-color: unset;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .darkmode-btn {
@@ -65,6 +66,7 @@ header {
    color: var(--text-color-dark);
    border: 1px solid #d9d9d9;
    transition: all 0.5s ease;
+   box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 .total-points-btn:hover {
@@ -86,7 +88,7 @@ header {
 .add-points-container {
    position: absolute;
    z-index: 1;
-   left: 18%;
+   left: 32%;
    top: 10px;
    display: flex;
    flex-direction: column;
@@ -104,7 +106,7 @@ header {
 .hide-container {
    position: absolute;
    z-index: 1;
-   left: 82%;
+   left: 32%;
    top: 10px;
    display: flex;
    flex-direction: column;
@@ -250,6 +252,10 @@ header {
 
    .add-points-container {
       left: 82%;
+   }
+
+   .hide-container {
+      left: 70%;
    }
 
    .points-btn {
